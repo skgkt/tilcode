@@ -29,7 +29,7 @@ dependencyCheckUpdate - Downloads and stores updates from the NVD CVE data feeds
 ## サンプル
 
 脆弱性が多い Struts で試してみる。  
-CVE Detail をもとに脆弱性が報告されているバージョンを調べると `2.5.16` で脆弱性（以下）が報告されていた。
+CVE Details をもとに脆弱性が報告されているバージョンを調べると `2.5.16` で脆弱性（以下）が報告されていた。
 
 [CVE-2018-11776 : Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible Remote Code Execution when alwaysSelectFullN](https://www.cvedetails.com/cve/CVE-2018-11776/)
 

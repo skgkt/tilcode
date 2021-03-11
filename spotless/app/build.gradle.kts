@@ -28,6 +28,6 @@ spotless {
     }
 }
 
-tasks.getByName("compileJava") {
+tasks.named("compileJava") {
     dependsOn("spotlessJavaApply")
 }

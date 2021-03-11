@@ -16,8 +16,9 @@
 
 ```kotlin
 plugins {
-    id("com.diffplug.spotless")
+    id("com.diffplug.spotless") version "5.11.0"
 }
+
 spotless {
     java {
         // AOSP style

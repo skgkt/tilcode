@@ -25,6 +25,11 @@ public class ClockTest {
         log.info("任意のゾーンから取得する");
         var pst = ZoneId.of("PST", ZoneId.SHORT_IDS);
         log.info("Clock.system={}", map(Clock.system(pst)));
+
+        log.info("ゾーンを切り替える");
+        var clock = Clock.systemUTC();
+        log.info("Clock.systemUTC={}", map(clock));
+        log.info("Clock.withZone={}", map(clock.withZone(ZoneId.of("Asia/Tokyo"))));
     }
 
     @DisplayName("オフセットを反映したクロックが生成されること")

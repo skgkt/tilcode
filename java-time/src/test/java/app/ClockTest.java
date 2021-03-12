@@ -1,10 +1,11 @@
 package app;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.*;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -72,6 +73,6 @@ public class ClockTest {
         var instant2 = fixedClock.instant();
         log.info("スリープ後の日付/時刻={}", map(fixedClock));
 
-        Assertions.assertEquals(instant1, instant2);
+        assertEquals(instant1, instant2);
     }
 }

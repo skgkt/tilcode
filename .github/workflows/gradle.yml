@@ -20,7 +20,8 @@ jobs:
       with:
         java-version: 11
     - name: Grant execute permission for gradlew
-      run: chmod -R +x gradlew
+      run: chmod +x gradlew
+      working-directory: java-time
     - name: Build with Gradle
       run: ./gradlew test
       working-directory: java-time

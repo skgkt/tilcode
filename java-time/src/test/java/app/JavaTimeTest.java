@@ -83,9 +83,11 @@ class JavaTimeTest {
         @DisplayName("同じLocalDateTimeとなること")
         @Test
         void localDateTimeAndOffsetDateTime() {
-            var instant = Instant.now();
+            final var instant = Instant.now();
+            final var jst = ZoneId.of("Asia/Tokyo");
+
             // 日本時間換算で LocalDateTime を宣言する。
-            var localDateTime = LocalDateTime.ofInstant(instant, ZoneId.of("Asia/Tokyo"));
+            var localDateTime = LocalDateTime.ofInstant(instant, jst);
             // UTC で OffsetDateTime を宣言する。
             var offsetDateTime = instant.atOffset(ZoneOffset.UTC);
 
@@ -96,9 +98,7 @@ class JavaTimeTest {
 
             // 一方、Instant を介して LocalDateTime に変換する場合は ofInstant() メソッド呼び出し時に
             // 日本時間としてオフセットが計算されるため誤差なく変換できる。
-            assertEquals(
-                    localDateTime,
-                    LocalDateTime.ofInstant(offsetDateTime.toInstant(), ZoneId.systemDefault()));
+            assertEquals(localDateTime, LocalDateTime.ofInstant(offsetDateTime.toInstant(), jst));
         }
     }
 }

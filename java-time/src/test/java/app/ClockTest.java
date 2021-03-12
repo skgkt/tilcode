@@ -22,7 +22,7 @@ public class ClockTest {
         log.info("デフォルトのゾーンから取得する");
         log.info("Clock.systemDefaultZone={}", map(Clock.systemDefaultZone()));
 
-        log.info("任意のゾーンから取得する。");
+        log.info("任意のゾーンから取得する");
         var pst = ZoneId.of("PST", ZoneId.SHORT_IDS);
         log.info("Clock.system={}", map(Clock.system(pst)));
     }

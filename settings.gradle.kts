@@ -8,3 +8,4 @@ pluginManagement {
 rootProject.name = "tilcode"
 
 include("java-time")
+include("lazy-initialization")

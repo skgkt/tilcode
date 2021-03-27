@@ -1,10 +1,5 @@
 plugins {
     `java-library`
-    id("com.diffplug.spotless") version "5.11.0"
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
@@ -22,19 +17,4 @@ dependencies {
     // Test
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("ch.qos.logback:logback-classic")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-spotless {
-    java {
-        // AOSP style
-        googleJavaFormat("1.9").aosp()
-    }
-}
-
-tasks.named("compileJava") {
-    dependsOn(tasks.named("spotlessJavaApply"))
 }

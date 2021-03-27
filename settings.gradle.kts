@@ -6,3 +6,5 @@ pluginManagement {
 }
 
 rootProject.name = "tilcode"
+
+include("java-time")

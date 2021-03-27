@@ -20,7 +20,11 @@ subprojects {
 
     tasks.withType(JavaCompile::class).configureEach {
         options.encoding = utf8
-        dependsOn(tasks.named("spotlessJavaApply"))
+
+        // 開発環境でのみコード整形タスクを実施したい。
+        if (org.gradle.internal.os.OperatingSystem.current().isWindows) {
+            dependsOn(tasks.named("spotlessJavaApply"))
+        }
     }
 
     tasks.withType(org.gradle.api.tasks.javadoc.Javadoc::class).configureEach {

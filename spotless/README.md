@@ -36,7 +36,7 @@ spotless {
 ## コンパイル時にフォーマットする
 
 ```kotlin
-tasks.named("compileJava") {
-    dependsOn("spotlessJavaApply")
+tasks.named("compileJava").configure {
+    dependsOn(tasks.named("spotlessJavaApply"))
 }
 ```

@@ -8,6 +8,8 @@ allprojects {
     }
 }
 
+val utf8 = java.nio.charset.StandardCharsets.UTF_8.name()
+
 subprojects {
     apply(plugin = "java")
     apply(plugin = "com.diffplug.spotless")
@@ -16,8 +18,13 @@ subprojects {
         useJUnitPlatform()
     }
 
-    tasks.named("compileJava").configure {
+    tasks.withType(JavaCompile::class).configureEach {
+        options.encoding = utf8
         dependsOn(tasks.named("spotlessJavaApply"))
+    }
+
+    tasks.withType(org.gradle.api.tasks.javadoc.Javadoc::class).configureEach {
+        options.encoding = utf8
     }
 
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {

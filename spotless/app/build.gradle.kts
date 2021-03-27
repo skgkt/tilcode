@@ -1,6 +1,6 @@
 plugins {
     application
-    id("com.diffplug.spotless") version "5.11.0"
+    id("com.diffplug.spotless")
 }
 
 repositories {

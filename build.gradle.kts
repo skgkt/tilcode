@@ -2,6 +2,11 @@ plugins {
     id("com.diffplug.spotless") version "5.11.1"
 }
 
+val unsetSpotless = project.hasProperty("unsetSpotless")
+if (unsetSpotless) {
+    logger.lifecycle("spotlessApplyタスクを回避します。")
+}
+
 val utf8 = java.nio.charset.StandardCharsets.UTF_8.name()
 
 subprojects {
@@ -15,8 +20,7 @@ subprojects {
     tasks.withType(JavaCompile::class).configureEach {
         options.encoding = utf8
 
-        // 開発環境でのみコード整形タスクを実施したい。
-        if (org.gradle.internal.os.OperatingSystem.current().isWindows) {
+        if (!unsetSpotless) {
             dependsOn(tasks.named("spotlessJavaApply"))
         }
     }

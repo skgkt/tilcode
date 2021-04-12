@@ -2,12 +2,6 @@ plugins {
     id("com.diffplug.spotless") version "5.11.1"
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-
 val utf8 = java.nio.charset.StandardCharsets.UTF_8.name()
 
 subprojects {

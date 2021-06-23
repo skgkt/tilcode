@@ -1,5 +1,5 @@
 plugins {
-    id("com.diffplug.spotless") version "5.11.1"
+    id("com.diffplug.spotless") version "5.14.0"
 }
 
 val unsetSpotless = project.hasProperty("unsetSpotless")
